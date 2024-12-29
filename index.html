@@ -10,7 +10,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://lawsondesigns.net/">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" as="image" href="images/lawson-designs-iphone-mockup.webp">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css">
@@ -127,7 +127,7 @@
           <div class="header-content">
             <!-- Logo Section -->
             <div class="logo-header">
-              <img src="images/logo.webp" alt="Lawson Designs Logo | Very Afforable Websites">
+              <img src="images/logo.webp" alt="Lawson Designs Logo | Very Afforable Websites"loading="eager">
             </div>
             <div class="logo-text">
               <a href="https://g.co/kgs/ZdFuWJi"><i class="fi fi-brands-google"></i></a>
@@ -147,8 +147,12 @@
                 <p class="subheading">Fast, responsive, and modern designs tailored for your business.</p>
                 <a href="#" id="open-popup" class="cta-button">Get Your Website For Just £50</a>
               </div>
-              <img src="images/lawson-designs-iphone-mockup.webp" alt="Website Mockup">
-            </section>                           
+              <img src="images/lawson-designs-iphone-mockup.webp" 
+              alt="Website Mockup" 
+              width="500" 
+              height="333" 
+              loading="eager">
+                     </section>                           
   
                           <!-- Popup Modal -->
           <div id="popup-modal" class="modal">
@@ -156,8 +160,9 @@
                 <span class="close-btn">&times;</span>
                 <section id="free-quote-form" class="form-section">
                     <div class="form-content">
-                      <h2>Get a Custom Website for Only <span>£50</span> & Boost Your Google Rankings!</h2>
-                      <p>Stand out online with a responsive, SEO-friendly website tailored to your business — just £50!</p>                      
+                      <h2>Hurry! Get Your Custom Website for Just <span>£50</span>!</h2>
+                      <p>Limited-time offer — SEO-friendly, responsive websites for only £50. Act fast!</p>
+                                       
                         <form action="https://formsubmit.co/lawsondesignsuk@gmail.com" method="POST">
                           <input type="hidden" name="_next" value="https://lawsondesigns.net/">
                             <div class="input-group">
@@ -170,7 +175,9 @@
                         </form>
                     </div>
                     <div class="form-image-affordable">
-                        <img src="images/lawson-designs-affordable-websites-square.webp" alt="Lawson Designs | Afforable Websites For Just £50">
+                      <img src="images/lawson-designs-affordable-websites-square.webp" 
+                      alt="Lawson Designs | Affordable Websites For Just £50" 
+                      loading="lazy">                                     
                     </div>
                 </section>
             </div>
@@ -242,25 +249,34 @@
           <section id="portfolio" class="portfolio-container">
             <div class="portfolio-box">
               <a href="https://firstaidfirstcaretrainingservices.com/">              
-                <img src="images/lawson-designs-first-aid-first-care-website.webp" alt="Lawson Designs | Afforadable SEO Custom Websites Near Me">
+                <img 
+                src="images/lawson-designs-first-aid-first-care-website.webp" 
+                alt="Lawson Designs | Affordable SEO Custom Websites Near Me" 
+                loading="lazy">              
               </a>
             </div>
 
             <div class="portfolio-box">
               <a href="https://heritagestonecardiff.com/">              
-                <img src="images/lawson-designs-heritage-stone-cardiff-website.webp" alt="Lawson Designs | Afforadable SEO Custom Websites Near Me">
+                <img src="images/lawson-designs-heritage-stone-cardiff-website.webp" 
+                alt="Lawson Designs | Affordable SEO Custom Websites Near Me" 
+                loading="lazy">
               </a>
             </div>
 
             <div class="portfolio-box">
               <a href="https://jennifersmithcounselling.com/">              
-                <img src="images/lawson-designs-jennifer-smith-counselling-website.webp" alt="Lawson Designs | Afforadable SEO Custom Websites Near Me">
+                <img src="images/lawson-designs-jennifer-smith-counselling-website.webp" 
+                alt="Lawson Designs | Affordable SEO Custom Websites Near Me" 
+                loading="lazy">
               </a>
             </div>
 
             <div class="portfolio-box">
               <a href="https://kenteggs.co.uk/">              
-                <img src="images/lawson-designs-kent-eggs-website.webp" alt="Lawson Designs | Afforadable SEO Custom Websites Near Me">
+                <img src="images/lawson-designs-kent-eggs-website.webp" 
+                alt="Lawson Designs | Affordable SEO Custom Websites Near Me" 
+                loading="lazy">              
               </a>
             </div>
           </section>    
@@ -397,21 +413,14 @@
           <div class="footer-content">
             <div class="logo">
               <a href="https://lawsondesigns.net/">
-                <img src="images/logo.webp" alt="Lawson Designs Logo">
+                <img src="images/logo.webp" alt="Lawson Designs Logo | Very Afforable Websites"loading="lazy">
               </a>
             </div>
             <p>&copy; 2024 Lawson Designs. All rights reserved</p>
             <div class="social-icons">
-              <a href="https://www.instagram.com/lawsondesigns.dev/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/lawsondesigns.dev/"><i class="fi fi-brands-instagram"></i></a>
             </div>
           </div>
         </footer>
-
-        <script>
-          function toggleMenu() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  mobileMenu.classList.toggle('open');
-}
-        </script>
     </body>
 </html>
