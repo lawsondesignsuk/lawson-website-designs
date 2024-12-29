@@ -19,12 +19,11 @@ html {
     padding: 100px;
 }
 
-/* Heading Styling */
 .creative-heading {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  color: transparent; /* Text will be filled by gradient */
+  color: transparent; 
   margin: 0 auto;
   max-width: 900px;
   line-height: 1.2;
@@ -95,7 +94,6 @@ p.limited-width {
   max-width: 700px;
 }
 
-/* Header Styling */
 .header {
   color: #fff;
   padding: 20px;
@@ -103,11 +101,10 @@ p.limited-width {
   width: 100%;
 }
 
-/* Container for centering content */
 .header-content {
   width: 100%;
   max-width: 1200px;
-  margin: auto; /* Centers the content */
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,7 +143,6 @@ p.limited-width {
   text-decoration: none;
 }
 
-/* Navigation Links */
 .nav-links {
   display: flex;
   gap: 30px;
@@ -224,7 +220,6 @@ p.limited-width {
   color: #00bfff;
 }
 
-/* Close Icon Styling */
 .close-icon {
   position: absolute;
   top: 20px;
@@ -233,7 +228,6 @@ p.limited-width {
   cursor: pointer;
 }
 
-/* Responsive Design for Mobile */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -250,16 +244,16 @@ p.limited-width {
 }
 
 .hero {
-  padding-top: 50px; /* Keep for small screens */
+  padding-top: 50px;
   width: 100%;
   margin: auto;
   color: rgb(183, 183, 183);
   text-align: center;
   display: flex;
-  flex-direction: column; /* Stack content on mobile */
-  align-items: center; /* Center align on mobile */
+  flex-direction: column; 
+  align-items: center; 
   justify-content: center;
-  gap: 40px; /* Space between content */
+  gap: 40px; 
   max-width: 1200px;
 }
 
@@ -276,15 +270,12 @@ p.limited-width {
 
 .cta-button {
   text-decoration: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 23px;
-  padding-right: 23px;
+  padding: 15px 30px; 
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: bold;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  color: black;
+  background-color: #FF5722;
+  color: white; 
   display: inline-block;
   margin-top: 40px;
   transition: all 0.3s ease-in-out;
@@ -292,9 +283,10 @@ p.limited-width {
 }
 
 .cta-button:hover {
-  background-color: #2980b9;
+  background-color: #e64a19; 
   transform: scale(1.05);
 }
+
 
 .hero img {
   width: 100%;
