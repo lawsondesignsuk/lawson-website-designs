@@ -1,0 +1,23 @@
+# Lawson Designs - Website Crawling Rules
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+Disallow: /planning.html
+
+# Allow crawling of CSS, JS, and images for better rendering in search results
+Allow: /style.css
+Allow: /script.js
+Allow: /start-your-website.css
+Allow: /start-your-website.js
+Allow: /images/
+
+# Crawl-delay to be respectful of server resources (1 second)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://lawsondesigns.net/sitemap.xml
+
+# Additional sitemap for images (if created)
+# Sitemap: https://lawsondesigns.net/sitemap-images.xml
