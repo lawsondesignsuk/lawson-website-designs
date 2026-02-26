@@ -32,14 +32,13 @@
     </style>
     
     <!-- Load full CSS asynchronously -->
-    <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="preload" as="style" href="style.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.min.css"></noscript>
     
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=optional"></noscript>
     <link rel="preload" as="image" href="images/ipad-mockup.webp">
     <meta name="theme-color" content="#0b1233">
     <link rel="apple-touch-icon" sizes="180x180" href="https://lawsondesigns.net/apple-touch-icon.png">
@@ -400,11 +399,11 @@
         </div>
         <div class="premium-work-gallery">
           <a href="https://firstaidfirstcaretrainingservices.com/" target="_blank" rel="noopener noreferrer" aria-label="View First Aid First Care project">
-            <img src="images/lawson-designs-first-aid-first-care-website.webp" alt="First Aid First Care website by Lawson Designs" loading="lazy" decoding="async" width="600" height="400">
+            <img src="images/lawson-designs-first-aid-first-care-website-700.webp" alt="First Aid First Care website by Lawson Designs" loading="lazy" decoding="async" width="700" height="461">
             <span class="premium-work-caption"><strong>First Aid First Care</strong><em>Training-focused structure with clear enquiry pathways</em></span>
           </a>
           <a href="https://heritagestonecardiff.com/" target="_blank" rel="noopener noreferrer" aria-label="View Heritage Stone Cardiff project">
-            <img src="images/lawson-designs-heritage-stone-cardiff-website.webp" alt="Heritage Stone Cardiff website by Lawson Designs" loading="lazy" decoding="async" width="600" height="400">
+            <img src="images/lawson-designs-heritage-stone-cardiff-website-700.webp" alt="Heritage Stone Cardiff website by Lawson Designs" loading="lazy" decoding="async" width="700" height="461">
             <span class="premium-work-caption"><strong>Heritage Stone Cardiff</strong><em>Trades website built around quote requests and local trust</em></span>
           </a>
           <a href="https://kenteggs.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="View Kent Eggs project">
@@ -474,8 +473,19 @@
       const mobileMenu = document.getElementById('mobileMenu');
       const menuClose = document.querySelector('.mobile-menu-close');
       const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+      let mobileIconsLoaded = false;
+
+      function ensureMobileIconsLoaded() {
+        if (mobileIconsLoaded) return;
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css';
+        document.head.appendChild(link);
+        mobileIconsLoaded = true;
+      }
 
       function openMenu() {
+        ensureMobileIconsLoaded();
         mobileMenu.classList.add('active');
         menuToggle.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
@@ -601,10 +611,20 @@
 
       const scrollMilestones = [25, 50, 75, 100];
       const reachedMilestones = new Set();
+      let maxScrollDistance = 0;
+      let scrollTicking = false;
+
+      function updateScrollMetrics() {
+        const fullHeight = Math.max(
+          document.documentElement.scrollHeight,
+          document.body ? document.body.scrollHeight : 0
+        );
+        maxScrollDistance = fullHeight - window.innerHeight;
+      }
+
       function trackScrollDepth() {
-        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (documentHeight <= 0) return;
-        const scrollPercent = Math.round((window.scrollY / documentHeight) * 100);
+        if (maxScrollDistance <= 0) return;
+        const scrollPercent = Math.round((window.scrollY / maxScrollDistance) * 100);
 
         scrollMilestones.forEach((milestone) => {
           if (scrollPercent >= milestone && !reachedMilestones.has(milestone)) {
@@ -614,44 +634,60 @@
         });
       }
 
-      window.addEventListener('scroll', trackScrollDepth, { passive: true });
+      function onScroll() {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          trackScrollDepth();
+          scrollTicking = false;
+        });
+      }
+
+      updateScrollMetrics();
+      window.addEventListener('load', updateScrollMetrics, { once: true });
+      window.addEventListener('resize', updateScrollMetrics, { passive: true });
+      window.addEventListener('scroll', onScroll, { passive: true });
       trackScrollDepth();
     })();
   </script>
 
   
   <script>
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
       const loader = document.getElementById('pageLoader');
       if (loader) {
         loader.classList.add('hidden');
       }
-      
-      // Load icon CSS after page is fully loaded
-      const iconStyles = [
-        'https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css',
-        'https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-chubby/css/uicons-solid-chubby.css',
-        'https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'
-      ];
-      
-      iconStyles.forEach(function(href) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        document.head.appendChild(link);
-      });
-      
-      // Load Google Analytics after page is interactive
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
-      window.gtag('js', new Date());
-      window.gtag('config', 'G-TV4WN9C8GB');
-      
-      var gaScript = document.createElement('script');
-      gaScript.async = true;
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-TV4WN9C8GB';
-      document.head.appendChild(gaScript);
     });
+
+    (function() {
+      let analyticsLoaded = false;
+
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-TV4WN9C8GB';
+        document.head.appendChild(gaScript);
+
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-TV4WN9C8GB');
+      }
+
+      const analyticsIntentTargets = document.querySelectorAll(
+        '.track-cta, .track-form input, .track-form textarea, .track-form select, .track-form button'
+      );
+
+      analyticsIntentTargets.forEach((target) => {
+        target.addEventListener('pointerdown', loadAnalytics, { once: true, passive: true });
+        target.addEventListener('keydown', loadAnalytics, { once: true, passive: true });
+      });
+    })();
   </script>
 
 </body>
