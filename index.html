@@ -538,35 +538,6 @@
         revealItems.forEach((item) => item.classList.add('is-visible'));
       }
 
-      const hero = document.querySelector('.premium-hero');
-      const laptop = document.querySelector('.premium-device-laptop');
-      const phone = document.querySelector('.premium-device-phone');
-      const canParallax = window.matchMedia('(min-width: 901px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (hero && laptop && phone && canParallax) {
-        let rafId = null;
-
-        hero.addEventListener('mousemove', (event) => {
-          const rect = hero.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - 0.5;
-          const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-          if (rafId) {
-            cancelAnimationFrame(rafId);
-          }
-
-          rafId = requestAnimationFrame(() => {
-            laptop.style.transform = `translate3d(${x * 7}px, ${y * 7}px, 0)`;
-            phone.style.transform = `translate3d(${x * 12}px, ${y * 12}px, 0)`;
-          });
-        });
-
-        hero.addEventListener('mouseleave', () => {
-          laptop.style.transform = 'translate3d(0, 0, 0)';
-          phone.style.transform = 'translate3d(0, 0, 0)';
-        });
-      }
-
       const ctaLinks = document.querySelectorAll('.track-cta');
       ctaLinks.forEach((link) => {
         link.addEventListener('click', () => {
